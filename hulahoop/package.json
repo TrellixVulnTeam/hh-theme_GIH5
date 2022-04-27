@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.5",
+    "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
+    "postcss-nesting": "^10.1.4",
+    "tailwindcss": "^3.0.24"
+  },
+  "scripts": {
+    "Watch - CSS": "npx tailwindcss -i ./assets/src/main.css -o ./assets/dist/main.min.css --watch --minify",
+    "Update - Packages": "ncu -u && npm install"
+  },
+  "dependencies": {
+    "npm-check-updates": "^12.5.9"
+  }
+}
