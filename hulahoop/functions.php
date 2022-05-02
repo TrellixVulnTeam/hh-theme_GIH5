@@ -82,11 +82,10 @@ if (!class_exists('HHTheme')) {
 
 	if (function_exists('acf_new_instance')) {
 		acf_new_instance('HHTheme');
+		require_once THEME_INC_PATH . 'post_types.php';
+		require_once THEME_INC_PATH . 'hh_tracking.php';
+		require_once THEME_INC_PATH . 'taxonomies.php';
+		require_once THEME_INC_PATH . 'field_groups.php';
+		require_once THEME_INC_PATH . 'blocks.php';
 	}
 }
-
-require_once THEME_INC_PATH . 'post_types.php';
-require_once THEME_INC_PATH . 'hh_tracking.php';
-require_once THEME_INC_PATH . 'taxonomies.php';
-require_once THEME_INC_PATH . 'field_groups.php';
-require_once THEME_INC_PATH . 'blocks.php';
