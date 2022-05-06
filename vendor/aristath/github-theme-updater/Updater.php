@@ -196,8 +196,8 @@ class Updater {
 new Updater(
 	array(
 		'name' => 'HulaHoop',                     // Theme Name.
-		'repo' => 'HulaHoop-Agency/hh-theme',             // Theme repository.
+		'repo' => 'HulaHoop-Agency/hh-theme',     // Theme repository.
 		'slug' => 'hh-theme',                     // Theme Slug.
-		'ver'  => 1.0,                          // Theme Version.
+		'ver'  => 1.0,                            // Theme Version.
 	)
 );
