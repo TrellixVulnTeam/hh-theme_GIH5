@@ -87,7 +87,5 @@ if ( ! class_exists( 'HHTheme' ) ) {
 		include_once THEME_INC_PATH . 'taxonomies.php';
 		include_once THEME_INC_PATH . 'field_groups.php';
 		include_once THEME_INC_PATH . 'blocks.php';
-
-		require __DIR__ . '/vendor/aristath/github-theme-updater/Updater.php';
 	}
 }
