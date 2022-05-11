@@ -14,6 +14,7 @@ if ( ! class_exists( 'HHTheme' ) ) {
 
 			define( 'THEME_PATH', get_template_directory() );
 			define( 'THEME_INC_PATH', get_template_directory() . '/inc/' );
+			define( 'THEME_INC_URL', get_template_directory_uri() . '/inc/' );
 			define( 'THEME_ASSETS_SRC', get_stylesheet_directory_uri() . '/assets/src/' );
 			define( 'THEME_ASSETS_DIST', get_stylesheet_directory_uri() . '/assets/dist/' );
 
@@ -28,17 +29,23 @@ if ( ! class_exists( 'HHTheme' ) ) {
 			 */
 			add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
 			add_action( 'init', array( $this, 'register_hh_option_page' ) );
+			add_action( 'acf/init', array( $this, 'register_acf_blocks' ) );
 
 			remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
-			add_action( 'login_head', array( $this, 'hh_custom_logo' ) );
-
 		}
 
-		public function hh_custom_logo() {
-			$logo_url = wp_get_attachment_url( get_theme_mod( 'custom_logo' ) );
-			if ( ! empty( $logo_url ) ) {
-				echo '<style type="text/css">h1 a { background-image:url(' . esc_url( $logo_url ) . ') !important;height:100px!important;width:100px!important; background-size:100% !important;line-height:inherit !important;}</style>';
+		/**
+		 * Register blocks
+		 */
+		public function register_acf_blocks() {
+			$request = wp_remote_get( THEME_INC_URL . '/blocks.json' );
+			if ( ! is_wp_error( $request ) ) {
+				$request = wp_remote_retrieve_body( $request );
+				$blocks  = json_decode( $request, true );
+				foreach ( $blocks as $block ) {
+					acf_register_block_type( $block );
+				}
 			}
 		}
 
@@ -96,6 +103,5 @@ if ( ! class_exists( 'HHTheme' ) ) {
 		include_once THEME_INC_PATH . 'hh_tracking.php';
 		include_once THEME_INC_PATH . 'taxonomies.php';
 		include_once THEME_INC_PATH . 'field_groups.php';
-		include_once THEME_INC_PATH . 'blocks.php';
 	}
 }
