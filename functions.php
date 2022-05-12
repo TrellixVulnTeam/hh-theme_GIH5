@@ -99,9 +99,9 @@ if ( ! class_exists( 'HHTheme' ) ) {
 
 	if ( function_exists( 'acf_new_instance' ) ) {
 		acf_new_instance( 'HHTheme' );
-		include_once THEME_INC_PATH . 'post_types.php';
-		include_once THEME_INC_PATH . 'hh_tracking.php';
+		include_once THEME_INC_PATH . 'post-types.php';
+		include_once THEME_INC_PATH . 'hh-tracking.php';
 		include_once THEME_INC_PATH . 'taxonomies.php';
-		include_once THEME_INC_PATH . 'field_groups.php';
+		include_once THEME_INC_PATH . 'field-groups.php';
 	}
 }

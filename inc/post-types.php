@@ -1,12 +1,18 @@
 <?php
 $post_types = array(
 	array(
-		'name' => 'project',
+		'name' => 'solution',
 		'args' => array(
-			'label'             => 'Projets',
-			'has_archive'       => 'projets',
+			'labels'            => array(
+				'name'          => __( 'Solutions', 'hulahoop' ),
+				'singular_name' => __( 'Solution', 'hulahoop' ),
+				'add_new'       => __( 'Ajouter une solution', 'hulahoop' ),
+				'not_found'     => __( 'Aucune solution trouvée', 'textdomain' ),
+
+			),
+			'has_archive'       => false,
 			'rewrite'           => array(
-				'slug'       => 'projet',
+				'slug'       => 'solution',
 				'with_front' => true,
 			),
 			'menu_icon'         => 'dashicons-editor-ul',
