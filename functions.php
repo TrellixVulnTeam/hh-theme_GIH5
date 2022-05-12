@@ -62,7 +62,8 @@ if ( ! class_exists( 'HHTheme' ) ) {
 		 * Enqueue styles and scripts
 		 */
 		public function enqueue_front() {
-			wp_enqueue_style( 'main-css', THEME_ASSETS_DIST . 'main.min.css', array(), false, 'all' );
+			wp_enqueue_style( 'main-css', THEME_ASSETS_DIST . 'main.min.css', array(), '1.0', 'all' );
+			wp_enqueue_style( 'custom-css', THEME_ASSETS_DIST . 'custom.min.css', array(), '1.0', 'all' );
 		}
 
 		/**
