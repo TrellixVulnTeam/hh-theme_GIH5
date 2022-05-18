@@ -44,7 +44,9 @@ if ( ! class_exists( 'HHTheme' ) ) {
 				$request = wp_remote_retrieve_body( $request );
 				$blocks  = json_decode( $request, true );
 				foreach ( $blocks as $block ) {
-					acf_register_block_type( $block );
+					if ( function_exists( 'acf_register_bloc_type' ) ) {
+						acf_register_block_type( $block );
+					}
 				}
 			}
 		}
