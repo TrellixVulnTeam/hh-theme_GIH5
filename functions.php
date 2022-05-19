@@ -33,6 +33,19 @@ if ( ! class_exists( 'HHTheme' ) ) {
 
 			remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
+			add_action( 'login_head', array( $this, 'hh_custom_logo' ) );
+
+		}
+
+		/**
+		 * Custom Logo login page
+		 */
+		public function hh_custom_logo() {
+			$logo_url = wp_get_attachment_url( get_theme_mod( 'custom_logo' ) );
+			if ( ! empty( $logo_url ) ) {
+				echo '<style type="text/css">h1 a { background-image:url(' . esc_url( $logo_url ) . ') !important;height:100px!important;width:100px!important; background-size:100% !important;line-height:inherit !important;}</style>';
+
+			}
 		}
 
 		/**
