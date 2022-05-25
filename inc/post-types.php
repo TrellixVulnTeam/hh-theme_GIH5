@@ -8,7 +8,6 @@ $post_types = array(
 				'singular_name' => __( 'Solution', 'hulahoop' ),
 				'add_new'       => __( 'Ajouter une solution', 'hulahoop' ),
 				'not_found'     => __( 'Aucune solution trouvée', 'textdomain' ),
-
 			),
 			'has_archive'       => false,
 			'rewrite'           => array(

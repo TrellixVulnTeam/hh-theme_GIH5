@@ -14,7 +14,7 @@ $taxonomies = array(
 				'singular_name' => __( 'Public', 'hulahoop' ),
 				'add_new'       => __( 'Ajouter un type de public', 'hulahoop' ),
 				'add_new_item'  => __( 'Ajouter un type de public', 'hulahoop' ),
-				'not_found'     => __( 'Aucun type de public trouvé', 'textdomain' ),
+				'not_found'     => __( 'Aucun type de public trouvé', 'hulahoop' ),
 
 			),
 			'hierarchical' => false,
@@ -26,10 +26,7 @@ $taxonomies = array(
  * Register Taxonomies
  */
 if ( $taxonomies ) :
-	foreach ( $taxonomies as $taxonomy ) :
-		$taxonomy_name = acf_maybe_get( $taxonomy, 'name' );
-		$taxonomy_cpt  = acf_maybe_get( $taxonomy, 'post_type' );
-		$taxonomy_args = acf_maybe_get( $taxonomy, 'args' );
-		register_taxonomy( $taxonomy_name, $taxonomy_cpt, $taxonomy_args );
+	foreach ( $taxonomies as $current_tax ) :
+		register_taxonomy( acf_maybe_get( $current_tax, 'name' ), acf_maybe_get( $current_tax, 'post_type' ), acf_maybe_get( $current_tax, 'args' ) );
 	endforeach;
 endif;
