@@ -14,4 +14,4 @@ jobs:
         server: update.staging-env.fr
         username: Github@update.staging-env.fr
         password: ${{ secrets.FTP_SECRET }}
-        dangerous-clean-state: true
+        dangerous-clean-slate: true
