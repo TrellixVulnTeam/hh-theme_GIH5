@@ -1,5 +1,4 @@
 .hh-admin-section {
-	border: 1px solid black;
 	background: white;
 
 	>div {
@@ -8,7 +7,9 @@
 		justify-content: center;
         img{
             width: 100%;
-            height: 100%;
+            height: auto;
+			display:block;
+			margin: 0 auto;
         }
 	}
 }
